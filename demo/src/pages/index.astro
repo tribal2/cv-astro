@@ -1,5 +1,16 @@
 ---
-import MyComponent from 'cv-astro';
+import CV, { type ICvData } from 'cv-astro';
+import { certifications, education, experience, info, projects, skills, volunteering } from '../dummy';
+
+const cvData: ICvData = {
+	info,
+	experience,
+	projects,
+	volunteering,
+	education,
+	certifications,
+	skills,
+};
 ---
 
 <html lang="en">
@@ -12,6 +23,17 @@ import MyComponent from 'cv-astro';
 	</head>
 	<body>
 		<h1>Astro</h1>
-		<MyComponent />
+		<h2 class="inline-flex justify-between bg-yellow-500 w-full items-center">
+			<span class="bg-blue-500 p-5">
+				Test L
+			</span>
+			<span class="bg-green-500 p-10">
+				Test M
+			</span>
+			<span class="bg-red-500 p-20">
+				Test R
+			</span>
+		</h2>
+		<CV {...cvData}/>
 	</body>
 </html>
