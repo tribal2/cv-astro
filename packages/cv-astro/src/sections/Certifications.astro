@@ -1,0 +1,19 @@
+---
+import type { ICertification } from '../cv';
+import CertificationCard from '../icons/CertificationCard.astro';
+
+interface Props {
+  data: ICertification[];
+}
+
+const { data } = Astro.props;
+---
+
+<section class="flex min-h-0 flex-col gap-y-3 print-force-new-page scroll-mb-16">
+  <h2 class="text-xl font-bold">Certifications</h2>
+  <div class="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-3 print:gap-2 sm:grid-cols-2">
+    {data.map(cert => (
+      <CertificationCard {...cert} />
+    ))}
+  </div>
+</section>

@@ -1,0 +1,42 @@
+---
+import PersonalInfo from './sections/PersonalInfo.astro';
+import WorkExperience from './sections/WorkExperience.astro';
+import Projects from './sections/Projects.astro';
+import VolunteerExperience from './sections/VolunteerExperience.astro';
+import Education from './sections/Education.astro';
+import Certifications from './sections/Certifications.astro';
+import Skills from './sections/Skills.astro';
+import type { ICvData } from './cv';
+
+interface Props extends ICvData {}
+
+const { info, experience, volunteering, education, certifications, skills, projects, order } = Astro.props;
+
+// @todo: allow changing order of sections
+// const ordering: ECvSection[] = order || [
+//   'info',
+//   'experience',
+//   'projects',
+//   'volunteering',
+//   'education',
+//   'certifications',
+//   'skills',
+// ];
+---
+<style>
+  .font-mono {
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace;
+  }
+</style>
+
+<main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
+  <section class="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
+    <PersonalInfo {...info}/>
+    { experience && (<WorkExperience data={experience}/>) }
+    { projects && (<Projects data={projects}/>) }
+    { volunteering && (<VolunteerExperience data={volunteering} />) }
+    { education && (<Education data={education}/>) }
+    { certifications && (<Certifications data={certifications} />) }
+    { skills && (<Skills data={skills}/>) }
+  </section>
+</main>

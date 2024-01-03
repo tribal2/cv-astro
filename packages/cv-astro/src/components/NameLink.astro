@@ -1,0 +1,36 @@
+---
+interface Props {
+  name: string;
+  url?: string;
+  shrink?: boolean;
+  textSize?: "xs" | "sm" | "base" | "lg" | "xl" | "2xl" | "3xl" | "4xl" | "5xl" | "6xl";
+}
+
+const { name, url, shrink, textSize } = Astro.props;
+---
+<>
+  <h3 class:list={[
+    "font-semibold",
+    "text-" + (textSize || "base"),
+    shrink && "tracking-tight",
+  ]}>
+    {!url ? name : (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 hover:underline"
+        aria-label="Link to {name}"
+      >
+        {name}
+        <span class="h-1 w-1 rounded-full bg-green-500"></span>
+      </a>
+    )
+  }
+  </h3>
+  {url && (
+    <div class="hidden font-mono text-xs underline print:visible">
+      {url}
+    </div>
+  )}
+</>

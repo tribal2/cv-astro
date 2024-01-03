@@ -1,0 +1,50 @@
+---
+import SocialButton from "./SocialButton.astro";
+import MailIcon from "../icons/MailIcon.astro";
+import PhoneIcon from "../icons/PhoneIcon.astro";
+import GithubIcon from "../icons/GithubIcon.astro";
+import LinkedInIcon from "../icons/LinkedInIcon.astro";
+import XIcon from "../icons/XIcon.astro";
+import type { IPersonalInfo } from "../cv";
+
+interface Props extends IPersonalInfo {}
+
+const info = Astro.props;
+const mailLink = `mailto:${info.email}`;
+const phoneLink = `tel:${info.phone}`;
+const githubLink = `https://github.com/${info.github}`;
+const linkedinLink = `https://linkedin.com/in/${info.linkedin}`;
+const xLink = `https://x.com/${info.twitter}`;
+---
+<div class="flex gap-x-1 pt-1 font-mono print:hidden">
+  <SocialButton
+    href={mailLink}
+    title="Send email"
+  >
+    <MailIcon class="size-4" />
+  </SocialButton>
+  <SocialButton
+    href={phoneLink}
+    title="Call me"
+  >
+    <PhoneIcon class="size-4" />
+  </SocialButton>
+  <SocialButton
+    href={githubLink}
+    title="GitHub"
+  >
+    <GithubIcon class="size-4" />
+  </SocialButton>
+  <SocialButton
+    href={linkedinLink}
+    title="LinkedIn"
+  >
+    <LinkedInIcon class="size-4" />
+  </SocialButton>
+  <SocialButton
+    href={xLink}
+    title="X"
+  >
+    <XIcon class="size-4" />
+  </SocialButton>
+</div>

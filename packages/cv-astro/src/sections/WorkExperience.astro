@@ -1,0 +1,51 @@
+---
+import OrgInfo from '../components/OrgInfo.astro';
+import type { IExperience } from '../cv';
+
+interface Props {
+  data: IExperience[];
+}
+
+const { data } = Astro.props;
+---
+<section class="flex min-h-0 flex-col gap-y-3">
+  <h2 class="text-xl font-bold">Work Experience</h2>
+
+  {data.map(exp => (
+    <div class="rounded-lg bg-card text-card-foreground">
+
+      <!-- Company -->
+      <OrgInfo {...exp.company} current={exp.current} />
+
+      <!-- Positions -->
+      {exp.positions.map(pos => (
+        <div class="flex flex-col space-y-1.5 mt-2">
+          <div class="flex items-center justify-between gap-x-2 text-base">
+            <h4 class="font-mono text-sm leading-none">
+              {pos.title}
+            </h4>
+            <div class="text-sm text-right tabular-nums min-w-36 text-gray-500">
+              {pos.startDate}
+              {pos.endDate && ` - ${pos.endDate}`}
+            </div>
+          </div>
+
+          <div class="text-pretty font-mono text-gray-500 mt-2 text-xs">
+            {pos.description}
+          </div>
+
+          <!-- Tasks -->
+          <ul class="list-disc mt-1 ml-3">
+            {pos.tasks.map(task => (
+              <li class="text-pretty font-mono text-gray-500 mt-1 text-xs">
+                {task.description} {task.output && ` → ${task.output}`}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+
+    </div>
+  ))}
+
+</section>

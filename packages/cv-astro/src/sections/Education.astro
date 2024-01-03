@@ -1,0 +1,51 @@
+---
+import OrgInfo from '../components/OrgInfo.astro';
+import type { IEducation } from '../cv';
+
+interface Props {
+  data: IEducation[];
+}
+
+const { data } = Astro.props;
+---
+<section class="flex min-h-0 flex-col gap-y-3">
+  <h2 class="text-xl font-bold">Education</h2>
+
+  <section class="flex min-h-0 flex-col gap-y-8">
+    {data.map(ed => (
+      <div class="flex flex-col space-y-1.5">
+        <!-- Institution -->
+        <OrgInfo {...ed.institution} />
+
+        <!-- Title -->
+        <div class="flex items-center justify-between gap-x-10 text-base">
+          <div class="flex flex-col justify-start">
+            <div class="text-pretty font-mono text-sm text-gray-500">
+              {ed.degree}
+            </div>
+            {ed.major && (
+              <div class="text-[0.7em]/[1.5em] font-light font-mono text-gray-500">
+                {ed.major}
+              </div>
+            )}
+          </div>
+          <div class="hidden md:block min-w-36 text-sm tabular-nums text-gray-500 text-right">
+            {ed.startDate} - {ed.endDate}
+          </div>
+        </div>
+
+        <!-- Description -->
+        {ed.achievements && (
+          <div class="text-pretty font-mono text-gray-500 text-xs">
+            <ul class="list-disc ml-3">
+              {ed.achievements.map(ach => (
+                <li>{ach}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    ))}
+  </section>
+
+</section>

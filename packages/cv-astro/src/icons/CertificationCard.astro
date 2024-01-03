@@ -1,0 +1,50 @@
+---
+import NameLink from '../components/NameLink.astro';
+import type { ICertification } from '../cv';
+
+interface Props extends ICertification {}
+
+const {
+  authority,
+  name,
+  code,
+  description,
+  license,
+  issueDate,
+  expirationDate,
+  url,
+  image,
+} = Astro.props;
+---
+<div class="rounded-lg bg-card text-card-foreground border border-muted p-3">
+  <div class="flex flex-row gap-x-2 justify-start items-center">
+    <picture class="size-14 flex-shrink-0 text-4xl text-center p-1">
+      <source srcset={image} type="image/svg+xml" />
+      <img src={image} alt={code ?? '🔖'} class="w-full h-full" />
+    </picture>
+    <NameLink
+      name={code ? `${name} [${code}]` : name}
+      url={url}
+      textSize='sm'
+    />
+  </div>
+  <div class="flex flex-col flex-grow gap-y-1">
+    {description && (
+      <p class="text-gray-500 text-xs font-normal">
+        {description}
+      </p>
+    )}
+
+    <dl class="grid grid-cols-3 gap-x-2 gap-y-1 text-gray-500 font-mono text-xs font-normal">
+      {license && (
+        <dt class="text-right text-gray-400">No:</dt>
+        <dd class="col-span-2">{license}</dd>
+      )}
+      <dt class="text-right text-gray-400">Issued by:</dt>
+      <dd class="col-span-2">{authority}</dd>
+      <dt class="text-right text-gray-400">On:</dt>
+      <dd class="col-span-2">{issueDate}</dd>
+    </dl>
+
+  </div>
+</div>

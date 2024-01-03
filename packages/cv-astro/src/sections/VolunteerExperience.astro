@@ -1,0 +1,96 @@
+---
+import dayjs from 'dayjs';
+import OrgInfo from '../components/OrgInfo.astro';
+import type { IVolunteer } from '../cv';
+
+interface Props {
+  data: IVolunteer[];
+}
+
+interface IVolunteerProc extends IVolunteer {
+  positionsList: string;
+  monthsOnDuty: number;
+  monthsOnDutyStr: string;
+}
+
+const { data } = Astro.props;
+
+function calculateDateDifferenceInMonths(
+  date1: string,
+  date2: string = new Date().toISOString().split('T')[0],
+): number {
+    const startDate = dayjs(date1);
+    const endDate = dayjs(date2);
+
+    return endDate.diff(startDate, 'month');
+}
+
+function monthsToYm(months: number): string {
+  const years = Math.floor(months / 12);
+  const remainingMonths = months % 12;
+
+  return `${years}y${remainingMonths}m`;
+}
+
+const dataProc: IVolunteerProc[] = data.map(exp => {
+  let monthsOnDuty = 0;
+
+  if (exp.startDate) {
+    monthsOnDuty = calculateDateDifferenceInMonths(exp.startDate, exp.endDate || undefined);
+  } else {
+    exp.positions.forEach(pos => {
+      monthsOnDuty += calculateDateDifferenceInMonths(pos.startDate, pos.endDate || undefined);
+    });
+  }
+
+  const positions: string[] = [];
+  exp.positions.forEach(pos => {
+    positions.push(pos.title);
+  });
+
+  return {
+    ...exp,
+    positionsList: positions.join(', '),
+    monthsOnDuty,
+    monthsOnDutyStr: monthsToYm(monthsOnDuty),
+  };
+});
+---
+<section class="flex min-h-0 flex-col gap-y-3">
+  <h2 class="text-xl font-bold">Volunteer Experience</h2>
+
+  {dataProc.map(exp => (
+    <div class="rounded-lg bg-card text-card-foreground">
+
+      <!-- Organization -->
+      <OrgInfo
+        {...exp.organization}
+        current={exp.isActiveMember}
+        currentLabel="Active"
+      />
+
+      <!-- Positions -->
+      <div class="flex flex-col space-y-1.5 mt-2">
+        <div class="flex items-center justify-between gap-x-2 text-base">
+          <h4 class="font-mono text-sm leading-none">
+            {exp.positionsList}
+          </h4>
+          <div class="text-sm text-right tabular-nums min-w-36 text-gray-500">
+            {exp.monthsOnDutyStr}
+          </div>
+        </div>
+      </div>
+
+      <!-- Tasks -->
+      <ul class="list-disc mt-1 ml-3">
+        {exp.tasks.map(task => (
+          <li class="text-pretty font-mono text-gray-500 mt-1 text-xs">
+            {task}
+          </li>
+        ))}
+      </ul>
+
+    </div>
+  ))}
+
+</section>
