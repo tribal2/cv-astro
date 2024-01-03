@@ -1,0 +1,4 @@
+{
+  "name": "cv-astro",
+  "workspaces": ["demo", "packages/*"]
+}
