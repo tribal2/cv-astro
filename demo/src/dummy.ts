@@ -1,6 +1,6 @@
 import type { ICertification, IEducation, IExperience, ILanguage, IPersonalInfo, IProject, ISkill, IVolunteer } from "cv-astro";
 
-export const info: IPersonalInfo = {
+const info: IPersonalInfo = {
   name: "John Doe",
   title: "Full Stack Developer",
   email: "john.doe@example.com",
@@ -15,7 +15,7 @@ export const info: IPersonalInfo = {
   summary: 'Passionate Full-stack Developer with extensive experience in creating dynamic, high-performance web applications. Skilled in a variety of programming languages and tools, with a strong focus on user experience and efficient coding practices. Adept at working in fast-paced environments and delivering projects on time. Committed to continuous learning and adopting new technologies.',
 };
 
-export const experience: Array<IExperience> = [
+const experience: Array<IExperience> = [
   {
     company: {
       name: "Tech Innovations Inc.",
@@ -137,7 +137,7 @@ export const experience: Array<IExperience> = [
   }
 ];
 
-export const volunteering: Array<IVolunteer> = [
+const volunteering: Array<IVolunteer> = [
   {
     organization: {
       name: "Code for Good",
@@ -181,7 +181,7 @@ export const volunteering: Array<IVolunteer> = [
   }
 ];
 
-export const education: Array<IEducation> = [
+const education: Array<IEducation> = [
   {
     institution: {
       name: "Prestigious University",
@@ -218,7 +218,7 @@ export const education: Array<IEducation> = [
   }
 ];
 
-export const certifications: Array<ICertification> = [
+const certifications: Array<ICertification> = [
   {
     authority: "Linux Foundation",
     name: "Linux Foundation Certified System Administrator",
@@ -226,7 +226,7 @@ export const certifications: Array<ICertification> = [
     description: "Certified in Linux administration and engineering at the enterprise level.",
     license: "LFCS-1234",
     issueDate: "2023-12",
-    image: "lfcs-300x300.png",
+    image: "images/lfcs-300x300.webp",
   },
   {
     name: "AWS Certified Solutions Architect - Associate",
@@ -237,7 +237,7 @@ export const certifications: Array<ICertification> = [
   },
 ];
 
-export const languages: Array<ILanguage> = [
+const languages: Array<ILanguage> = [
   {
     name: "🇪🇸 Spanish",
     proficiency: "Native"
@@ -252,7 +252,7 @@ export const languages: Array<ILanguage> = [
   },
 ];
 
-export const skills: Array<ISkill> = [
+const skills: Array<ISkill> = [
   {
     name: "JavaScript",
     proficiency: 5
@@ -371,7 +371,7 @@ export const skills: Array<ISkill> = [
   },
 ];
 
-export const interests: Array<string> = [
+const interests: Array<string> = [
   "🏃 Running",
   "🏋️‍♂️ Weightlifting",
   "🧘‍♂️ Meditation",
@@ -396,7 +396,7 @@ export const interests: Array<string> = [
   "🎤 Singing",
 ];
 
-export const projects: IProject[] = [
+const projects: IProject[] = [
   {
     name: "DevConnector",
     url: "https://devconnector.com/",
@@ -453,3 +453,12 @@ export const projects: IProject[] = [
   }
 ];
 
+export default {
+	info,
+	experience,
+	projects,
+	volunteering,
+	education,
+	certifications,
+	skills,
+};

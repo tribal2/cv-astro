@@ -1,16 +1,6 @@
 ---
-import CV, { type ICvData } from 'cv-astro';
-import { certifications, education, experience, info, projects, skills, volunteering } from '../dummy';
-
-const cvData: ICvData = {
-	info,
-	experience,
-	projects,
-	volunteering,
-	education,
-	certifications,
-	skills,
-};
+import CV from 'cv-astro';
+import cvData from '../dummy';
 ---
 
 <html lang="en">
@@ -22,18 +12,6 @@ const cvData: ICvData = {
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
-		<h2 class="inline-flex justify-between bg-yellow-500 w-full items-center">
-			<span class="bg-blue-500 p-5">
-				Test L
-			</span>
-			<span class="bg-green-500 p-10">
-				Test M
-			</span>
-			<span class="bg-red-500 p-20">
-				Test R
-			</span>
-		</h2>
 		<CV {...cvData}/>
 	</body>
 </html>
