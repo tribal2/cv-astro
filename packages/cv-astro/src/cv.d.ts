@@ -24,12 +24,12 @@ export interface IPersonalInfo {
   title: string;
   email: string;
   phone: string;
-  website: string;
-  linkedin: string;
-  github: string;
-  twitter: string;
+  website?: string;
+  linkedin?: string;
+  github?: string;
+  twitter?: string;
   address: string;
-  timezone: string;
+  timezone?: string;
   addressUrl?: string;
   summary: string;
   image?: string;

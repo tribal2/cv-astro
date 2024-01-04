@@ -6,45 +6,71 @@ import GithubIcon from "../icons/GithubIcon.astro";
 import LinkedInIcon from "../icons/LinkedInIcon.astro";
 import XIcon from "../icons/XIcon.astro";
 import type { IPersonalInfo } from "../cv";
+import AddressIcon from "../icons/AddressIcon.astro";
 
 interface Props extends IPersonalInfo {}
 
-const info = Astro.props;
-const mailLink = `mailto:${info.email}`;
-const phoneLink = `tel:${info.phone}`;
-const githubLink = `https://github.com/${info.github}`;
-const linkedinLink = `https://linkedin.com/in/${info.linkedin}`;
-const xLink = `https://x.com/${info.twitter}`;
+const {
+  email,
+  github,
+  linkedin,
+  phone,
+  twitter,
+  website,
+} = Astro.props;
+
+const mailLink = `mailto:${email}`;
+const phoneLink = `tel:${phone}`;
+const githubLink = github && `https://github.com/${github}`;
+const linkedinLink = linkedin && `https://linkedin.com/in/${linkedin}`;
+const xLink = twitter && `https://x.com/${twitter}`;
 ---
 <div class="flex gap-x-1 pt-1 font-mono print:hidden">
+  <!-- Email -->
   <SocialButton
     href={mailLink}
     title="Send email"
   >
     <MailIcon class="size-4" />
   </SocialButton>
+
+  <!-- Phone -->
   <SocialButton
     href={phoneLink}
     title="Call me"
   >
     <PhoneIcon class="size-4" />
   </SocialButton>
+
+  <!-- Website -->
+  <SocialButton
+    href={website}
+    title="Website"
+  >
+    <AddressIcon class="size-4">
+  </SocialButton>
+
+  <!-- GitHub -->
   <SocialButton
     href={githubLink}
     title="GitHub"
   >
     <GithubIcon class="size-4" />
   </SocialButton>
+
+  <!-- LinkedIn -->
   <SocialButton
     href={linkedinLink}
     title="LinkedIn"
   >
     <LinkedInIcon class="size-4" />
   </SocialButton>
+
+  <!-- X -->
   <SocialButton
     href={xLink}
     title="X"
   >
-    <XIcon class="size-4" />
+    <XIcon class="size-3" />
   </SocialButton>
 </div>
