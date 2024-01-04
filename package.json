@@ -1,4 +1,5 @@
 {
   "name": "cv-astro",
+  "description": "Astro component to display a print-friendly and minimalist CV inspired by BartoszJarocki/cv",
   "workspaces": ["demo", "packages/*"]
 }
