@@ -32,6 +32,7 @@ export interface IPersonalInfo {
   timezone: string;
   addressUrl: string;
   summary: string;
+  image?: string;
 }
 
 export interface IExperience {

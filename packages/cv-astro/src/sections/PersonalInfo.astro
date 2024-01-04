@@ -5,49 +5,67 @@ import type { IPersonalInfo } from "../cv";
 
 interface Props extends IPersonalInfo {}
 
-const info = Astro.props;
-const mailto = `mailto:${info.email}`;
-const telto = `tel:${info.phone}`;
+const {
+  address,
+  addressUrl,
+  email,
+  github,
+  image,
+  linkedin,
+  name,
+  phone,
+  summary,
+  timezone,
+  title,
+  twitter,
+  website,
+} = Astro.props;
+const mailto = `mailto:${email}`;
+const telto = `tel:${phone}`;
 ---
 
 <div class="flex items-center justify-between">
   <div class="flex-1 space-y-1.5">
-    <h1 class="text-2xl font-bold">{info.name}</h1>
+    <h1 class="text-2xl font-bold">{name}</h1>
     <p class="max-w-md text-pretty font-mono text-sm text-gray-500">
-      {info.title}
+      {title}
     </p>
     <p
       class="max-w-md items-center text-pretty font-mono text-xs text-gray-500"
     >
       <a
         class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
-        href={info.addressUrl}
+        href={addressUrl}
         target="_blank"
       >
         <AddressIcon class="size-3" />
-        {info.address}, {info.timezone}
+        {address}, {timezone}
       </a>
     </p>
     <SocialIcons {...Astro.props} />
     <div class="hidden flex-col gap-x-1 font-mono text-sm text-gray-500 print:flex">
       <a href={mailto}>
-        <span class="underline">{info.email}</span>
+        <span class="underline">{email}</span>
       </a>
       <a href={telto}>
-        <span class="underline">{info.phone}</span>
+        <span class="underline">{phone}</span>
       </a>
     </div>
   </div>
-  <span class="relative flex shrink-0 overflow-hidden rounded-xl h-28 w-28">
-    <span class="flex h-full w-full items-center justify-center rounded-xl bg-muted">
-      RTH
-      <!-- @todo: include a photo here -->
+  {image && (
+    <span class="relative flex shrink-0 overflow-hidden rounded-xl size-36">
+      <span class="flex size-full items-center justify-center rounded-xl bg-muted border border-gray-200">
+        <picture class="text-4xl text-center">
+          <source srcset={image} type="image/svg+xml" />
+          <img src={image} alt={`Photo of ${name}`} class="w-full h-full" />
+        </picture>
+      </span>
     </span>
-  </span>
+  )}
 </div>
 <section class="flex min-h-0 flex-col gap-y-3">
   <h2 class="text-xl font-bold">About</h2>
   <p class="text-pretty font-mono text-sm text-gray-500">
-    {info.summary}
+    {summary}
   </p>
 </section>

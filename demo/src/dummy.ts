@@ -13,6 +13,7 @@ const info: IPersonalInfo = {
   addressUrl: "https://maps.app.goo.gl/example",
   timezone: "EST (UTC-5)",
   summary: 'Passionate Full-stack Developer with extensive experience in creating dynamic, high-performance web applications. Skilled in a variety of programming languages and tools, with a strong focus on user experience and efficient coding practices. Adept at working in fast-paced environments and delivering projects on time. Committed to continuous learning and adopting new technologies.',
+  image: "images/john-doe.webp",
 };
 
 const experience: Array<IExperience> = [
