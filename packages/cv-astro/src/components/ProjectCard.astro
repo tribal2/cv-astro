@@ -15,10 +15,10 @@ const { name, description, url, technologies } = Astro.props;
   <p class="text-gray-500 font-mono text-xs font-normal">
     {description}
   </p>
-  <div class="text-pretty font-mono text-sm text-white mt-auto flex">
+  <div class="text-pretty font-mono text-sm mt-auto flex">
     <div class="flex flex-wrap gap-1">
       {technologies && technologies.map(tech => (
-        <div class="inline-flex items-center rounded-md border font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent bg-secondary/80 hover:bg-secondary/80 px-1 py-0 text-[10px]">
+        <div class="inline-flex items-center rounded-md border font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent px-1 py-0 text-[10px] bg-gray-100 hover:bg-gray-500/20">
           {tech}
         </div>
       ))}
