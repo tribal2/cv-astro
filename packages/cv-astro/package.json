@@ -1,7 +1,14 @@
 {
   "name": "cv-astro",
   "description": "Astro component to display a print-friendly and minimalist CV inspired by BartoszJarocki/cv",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "author": "Ricardo Tribaldos",
+  "license": "MIT",
+  "homepage": "https://github.com/tribal2/cv-astro",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tribal2/cv-astro"
+  },
   "type": "module",
   "exports": {
     ".": "./index.ts"
@@ -11,9 +18,11 @@
     "index.ts"
   ],
   "keywords": [
+    "cv",
     "astro",
     "with-astro",
-    "astro-component"
+    "astro-component",
+    "tailwindcss"
   ],
   "scripts": {},
   "devDependencies": {
