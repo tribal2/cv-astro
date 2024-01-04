@@ -30,7 +30,7 @@ export interface IPersonalInfo {
   twitter: string;
   address: string;
   timezone: string;
-  addressUrl: string;
+  addressUrl?: string;
   summary: string;
   image?: string;
 }
