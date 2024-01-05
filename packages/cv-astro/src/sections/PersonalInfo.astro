@@ -1,17 +1,15 @@
 ---
+import Address from "../components/Address.astro";
 import SocialIcons from "../components/SocialIcons.astro";
 import type { IPersonalInfo } from "../cv";
-import MapPinIcon from "../icons/MapPinIcon.astro";
 
 interface Props extends IPersonalInfo {}
 
 const {
   address,
   addressUrl,
-  email,
   image,
   name,
-  phone,
   summary,
   timezone,
   title,
@@ -29,22 +27,18 @@ const telto = `tel:${phone}`;
     <p
       class="max-w-md items-center text-pretty font-mono text-xs text-gray-500"
     >
-      {!addressUrl ? (
-        <span class="inline-flex gap-x-1.5 align-baseline leading-none">
-          <MapPinIcon class="size-3" />
-          {address}{timezone && `, ${timezone}`}
-        </span>
-      ) : (
-        <a
-          class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline items-center"
-          href={addressUrl}
-          target="_blank"
-        >
-          <MapPinIcon class="size-3" />
-          {address}{timezone && `, ${timezone}`}
-          <span class="h-1 w-1 rounded-full bg-green-500"></span>
-        </a>
-      )}
+      {!addressUrl
+        ? <Address {...Astro.props} />
+        : (
+          <a
+            class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline items-center"
+            href={addressUrl}
+            target="_blank"
+          >
+            <Address {...Astro.props} />
+            <span class="h-1 w-1 rounded-full bg-green-500"></span>
+          </a>
+        )}
     </p>
     <SocialIcons {...Astro.props} />
     <div class="hidden flex-col gap-x-1 font-mono text-sm text-gray-500 print:flex">
