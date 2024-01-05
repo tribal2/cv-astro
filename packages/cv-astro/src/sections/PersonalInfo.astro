@@ -41,7 +41,7 @@ const {
     <SocialIcons {...Astro.props} />
   </div>
   {image && (
-    <span class="relative flex shrink-0 overflow-hidden rounded-xl size-36">
+    <span class="hidden sm:flex relative shrink-0 overflow-hidden rounded-xl size-36">
       <span class="flex size-full items-center justify-center rounded-xl bg-muted border border-gray-200">
         <picture class="text-4xl text-center">
           <source srcset={image} type="image/svg+xml" />
