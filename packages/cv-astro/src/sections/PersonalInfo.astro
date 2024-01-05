@@ -14,8 +14,6 @@ const {
   timezone,
   title,
 } = Astro.props;
-const mailto = `mailto:${email}`;
-const telto = `tel:${phone}`;
 ---
 
 <div class="flex items-center justify-between">
@@ -41,14 +39,6 @@ const telto = `tel:${phone}`;
         )}
     </p>
     <SocialIcons {...Astro.props} />
-    <div class="hidden flex-col gap-x-1 font-mono text-sm text-gray-500 print:flex">
-      <a href={mailto}>
-        <span class="underline">{email}</span>
-      </a>
-      <a href={telto}>
-        <span class="underline">{phone}</span>
-      </a>
-    </div>
   </div>
   {image && (
     <span class="relative flex shrink-0 overflow-hidden rounded-xl size-36">
