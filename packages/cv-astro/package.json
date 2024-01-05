@@ -1,7 +1,7 @@
 {
   "name": "cv-astro",
   "description": "Astro component to display a print-friendly and minimalist CV inspired by BartoszJarocki/cv",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Ricardo Tribaldos",
   "license": "MIT",
   "homepage": "https://github.com/tribal2/cv-astro",
