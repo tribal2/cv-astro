@@ -1,0 +1,21 @@
+---
+import MapPinIcon from '../icons/MapPinIcon.astro';
+interface Props {
+  address: string;
+  timezone?: string;
+}
+
+const { address, timezone } = Astro.props;
+---
+<span class="inline-flex gap-x-1.5 align-baseline leading-none items-center">
+  <MapPinIcon class="size-3" />
+  <span class="flex flex-col sm:flex-row gap-y-1">
+    <span>{address}</span>
+    {timezone && (
+      <span class="inline-flex">
+        <span class="hidden sm:block text-gray-300 px-2">|</span>
+        {timezone}
+      </span>
+    )}
+  </span>
+</span>

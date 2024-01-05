@@ -25,52 +25,65 @@ const githubLink = github && `https://github.com/${github}`;
 const linkedinLink = linkedin && `https://linkedin.com/in/${linkedin}`;
 const xLink = twitter && `https://x.com/${twitter}`;
 ---
-<div class="flex gap-x-1 pt-1 font-mono print:hidden">
-  <!-- Email -->
-  <SocialButton
-    href={mailLink}
-    title="Send email"
-  >
-    <MailIcon class="size-4" />
-  </SocialButton>
+<>
+  <!-- Screen version: -->
+  <div class="flex gap-x-1 pt-1 font-mono print:hidden">
+    <!-- Email -->
+    <SocialButton
+      href={mailLink}
+      title="Send email"
+    >
+      <MailIcon class="size-4" />
+    </SocialButton>
 
-  <!-- Phone -->
-  <SocialButton
-    href={phoneLink}
-    title="Call me"
-  >
-    <PhoneIcon class="size-4" />
-  </SocialButton>
+    <!-- Phone -->
+    <SocialButton
+      href={phoneLink}
+      title="Call me"
+    >
+      <PhoneIcon class="size-4" />
+    </SocialButton>
 
-  <!-- Website -->
-  <SocialButton
-    href={website}
-    title="Website"
-  >
-    <AddressIcon class="size-4">
-  </SocialButton>
+    <!-- Website -->
+    <SocialButton
+      href={website}
+      title="Website"
+    >
+      <AddressIcon class="size-4">
+    </SocialButton>
 
-  <!-- GitHub -->
-  <SocialButton
-    href={githubLink}
-    title="GitHub"
-  >
-    <GithubIcon class="size-4" />
-  </SocialButton>
+    <!-- GitHub -->
+    <SocialButton
+      href={githubLink}
+      title="GitHub"
+    >
+      <GithubIcon class="size-4" />
+    </SocialButton>
 
-  <!-- LinkedIn -->
-  <SocialButton
-    href={linkedinLink}
-    title="LinkedIn"
-  >
-    <LinkedInIcon class="size-4" />
-  </SocialButton>
+    <!-- LinkedIn -->
+    <SocialButton
+      href={linkedinLink}
+      title="LinkedIn"
+    >
+      <LinkedInIcon class="size-4" />
+    </SocialButton>
 
-  <!-- X -->
-  <SocialButton
-    href={xLink}
-    title="X"
-  >
-    <XIcon class="size-3" />
-  </SocialButton>
-</div>
+    <!-- X -->
+    <SocialButton
+      href={xLink}
+      title="X"
+    >
+      <XIcon class="size-3" />
+    </SocialButton>
+  </div>
+
+  <!-- Print version: -->
+  <div class="hidden flex-col gap-x-1 font-mono text-sm text-gray-500 print:flex">
+    <a href={mailLink}>
+      <span class="underline">{email}</span>
+    </a>
+    <a href={phoneLink}>
+      <span class="underline">{phone}</span>
+    </a>
+  </div>
+</>
