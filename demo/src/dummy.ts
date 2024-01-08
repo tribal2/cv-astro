@@ -403,6 +403,7 @@ const projects: IProject[] = [
     url: "https://devconnector.com/",
     description: "A social network platform for developers to connect, share ideas, and collaborate on projects.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "Redux"],
+    techUrlPrefix: "/projects/tech/",
   },
   {
     name: "E-Shop",

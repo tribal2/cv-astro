@@ -77,6 +77,7 @@ export interface IProject {
   description: string;
   output?: string;
   technologies: string[];
+  techUrlPrefix?: string;
 }
 
 export interface IEducation {
