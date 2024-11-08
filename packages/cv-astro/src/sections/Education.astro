@@ -29,9 +29,13 @@ const { data } = Astro.props;
               </div>
             )}
           </div>
-          <div class="hidden md:block min-w-36 text-sm tabular-nums text-gray-500 text-right">
-            {ed.startDate} - {ed.endDate}
-          </div>
+          {(ed.startDate || ed.endDate) && (
+            <div class="hidden md:block min-w-36 text-sm tabular-nums text-gray-500 text-right">
+              {ed.startDate && ed.startDate}
+              {ed.startDate && ed.endDate && ' - '}
+              {ed.endDate && ed.endDate}
+            </div>
+          )}
         </div>
 
         <!-- Description -->

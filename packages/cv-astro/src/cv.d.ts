@@ -84,8 +84,8 @@ export interface IEducation {
   institution: IOrganization;
   degree: string;
   major?: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
   projects?: IProject[];
   achievements?: string[];
 }
