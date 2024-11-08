@@ -19,5 +19,4 @@ export type {
   ITask,
   IVolunteer,
   IVolunteerPosition,
-  ECvSection
 } from './src/cv';

@@ -6,17 +6,9 @@ export interface ICvData {
   certifications?: ICertification[];
   skills?: ISkill[];
   projects?: IProject[];
-  order?: ECvSection[];
-}
-
-export enum ECvSection {
-  Info = 'info',
-  Experience = 'experience',
-  Volunteering = 'volunteering',
-  Education = 'education',
-  Certifications = 'certifications',
-  Skills = 'skills',
-  Projects = 'projects',
+  config?: {
+    categoryOrder?: string[];
+  };
 }
 
 export interface IPersonalInfo {
@@ -118,4 +110,5 @@ export interface ILanguage {
 export interface ISkill {
   name: string;
   proficiency: number;
+  category?: string;
 }

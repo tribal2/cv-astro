@@ -3,7 +3,11 @@ import Address from "../components/Address.astro";
 import SocialIcons from "../components/SocialIcons.astro";
 import type { IPersonalInfo } from "../cv";
 
-interface Props extends IPersonalInfo {}
+interface Props {
+  data: IPersonalInfo;
+}
+
+const { data } = Astro.props;
 
 const {
   address,
@@ -13,7 +17,7 @@ const {
   summary,
   timezone,
   title,
-} = Astro.props;
+} = data;
 ---
 
 <div class="flex items-center justify-between">
@@ -26,19 +30,19 @@ const {
       class="max-w-md items-center text-pretty font-mono text-xs text-gray-500"
     >
       {!addressUrl
-        ? <Address {...Astro.props} />
+        ? <Address {...data} />
         : (
           <a
             class="inline-flex gap-x-1.5 align-baseline leading-none hover:underline items-center"
             href={addressUrl}
             target="_blank"
           >
-            <Address {...Astro.props} />
+            <Address {...data} />
             <span class="h-1 w-1 rounded-full bg-green-500"></span>
           </a>
         )}
     </p>
-    <SocialIcons {...Astro.props} />
+    <SocialIcons {...data} />
   </div>
   {image && (
     <span class="hidden sm:flex relative shrink-0 overflow-hidden rounded-xl size-36">
