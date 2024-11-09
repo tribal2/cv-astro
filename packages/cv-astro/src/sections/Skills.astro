@@ -1,4 +1,5 @@
 ---
+import CvBadge from '../components/CvBadge.astro';
 import type { ISkill } from '../cv';
 
 
@@ -35,9 +36,9 @@ if (categoryOrder) {
   <h2 class="text-xl font-bold">Skills</h2>
   <div class="flex flex-wrap gap-1">
     {skills.map(skill => (
-      <div class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent bg-gray-100 hover:bg-gray-500/20">
+      <CvBadge url={skill.url}>
         {skill.name}
-      </div>
+      </CvBadge>
     ))}
   </div>
 </section>

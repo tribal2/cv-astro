@@ -1,0 +1,45 @@
+---
+interface Props {
+  url?: string;
+}
+
+const { url } = Astro.props;
+
+const classes = [
+  'cursor-default',
+  'rounded-md',
+  'border',
+  'px-2',
+  'py-0.5',
+  'text-xs',
+  'font-semibold',
+  'font-mono',
+  'transition-colors',
+  'text-nowrap',
+  'border-transparent',
+  'bg-gray-100',
+].join(' ');
+
+const anchorClasses = [
+  'cursor-pointer',
+  'focus:outline-none',
+  'focus:ring-2',
+  'focus:ring-ring',
+  'focus:ring-offset-2',
+  'hover:bg-gray-200',
+].join(' ');
+---
+{url ? (
+  <a
+    href={url}
+    class={`${classes} ${anchorClasses}`}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <slot />
+  </a>
+) : (
+  <span class={classes}>
+    <slot />
+  </span>
+)}
