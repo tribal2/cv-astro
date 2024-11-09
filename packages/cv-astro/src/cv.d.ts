@@ -77,6 +77,7 @@ export interface IEducation {
   major?: string;
   startDate?: string;
   endDate?: string;
+  inProgress?: boolean;
   projects?: IProject[];
   achievements?: string[];
 }

@@ -15,7 +15,11 @@ const { data } = Astro.props;
     {data.map(ed => (
       <div class="flex flex-col space-y-1.5">
         <!-- Institution -->
-        <OrgInfo {...ed.institution} />
+        <OrgInfo
+          {...ed.institution}
+          current={ed.inProgress}
+          currentLabel="In Progress"
+        />
 
         <!-- Title -->
         <div class="flex items-center justify-between gap-x-10 text-base">
