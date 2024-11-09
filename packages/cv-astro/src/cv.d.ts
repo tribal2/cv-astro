@@ -68,8 +68,7 @@ export interface IProject {
   url?: string;
   description: string;
   output?: string;
-  technologies: string[];
-  techUrlPrefix?: string;
+  technologies: IOptionalLink[];
 }
 
 export interface IEducation {
@@ -107,9 +106,12 @@ export interface ILanguage {
   proficiency: string;
 }
 
-export interface ISkill {
-  name: string;
+export interface ISkill extends IOptionalLink {
   proficiency: number;
   category?: string;
+}
+
+export interface IOptionalLink {
+  name: string;
   url?: string;
 }
