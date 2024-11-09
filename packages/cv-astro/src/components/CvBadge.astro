@@ -1,11 +1,18 @@
 ---
 interface Props {
   url?: string;
+  variant?: keyof typeof colors;
+  target?: '_blank' | '_self';
 }
 
-const { url } = Astro.props;
+const colors = {
+  green: ['bg-green-100', 'hover:bg-green-200'],
+  default: ['bg-gray-100', 'hover:bg-gray-200'],
+};
 
-const classes = [
+const { url, variant = 'default', target = '_blank' } = Astro.props;
+
+const defaultClasses = [
   'cursor-default',
   'rounded-md',
   'border',
@@ -17,7 +24,7 @@ const classes = [
   'transition-colors',
   'text-nowrap',
   'border-transparent',
-  'bg-gray-100',
+  colors[variant][0],
 ].join(' ');
 
 const anchorClasses = [
@@ -26,14 +33,16 @@ const anchorClasses = [
   'focus:ring-2',
   'focus:ring-ring',
   'focus:ring-offset-2',
-  'hover:bg-gray-200',
+  colors[variant][1],
 ].join(' ');
+
+const classes = url ? `${defaultClasses} ${anchorClasses}` : defaultClasses;
 ---
 {url ? (
   <a
     href={url}
-    class={`${classes} ${anchorClasses}`}
-    target="_blank"
+    class={classes}
+    target={target}
     rel="noopener noreferrer"
   >
     <slot />
