@@ -1,5 +1,6 @@
 ---
 import Address from "../components/Address.astro";
+import SectionWrapper from "../components/SectionWrapper.astro";
 import SocialIcons from "../components/SocialIcons.astro";
 import type { IPersonalInfo } from "../cv";
 
@@ -55,9 +56,9 @@ const {
     </span>
   )}
 </div>
-<section class="flex min-h-0 flex-col gap-y-3">
-  <h2 class="text-xl font-bold">About</h2>
+
+<SectionWrapper title="About">
   <p class="text-pretty font-mono text-sm text-gray-500">
     {summary}
   </p>
-</section>
+</SectionWrapper>

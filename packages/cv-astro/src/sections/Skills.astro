@@ -1,5 +1,6 @@
 ---
 import CvBadge from '../components/CvBadge.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
 import type { ISkill } from '../cv';
 
 
@@ -32,8 +33,7 @@ if (categoryOrder) {
   });
 }
 ---
-<section class="flex min-h-0 flex-col gap-y-3">
-  <h2 class="text-xl font-bold">Skills</h2>
+<SectionWrapper title="Skills">
   <div class="flex flex-wrap gap-1">
     {skills.map(skill => (
       <CvBadge url={skill.url}>
@@ -41,4 +41,4 @@ if (categoryOrder) {
       </CvBadge>
     ))}
   </div>
-</section>
+</SectionWrapper>
