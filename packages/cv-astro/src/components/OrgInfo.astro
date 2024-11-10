@@ -1,6 +1,7 @@
 ---
 import NameLink from './NameLink.astro';
 import type { IOrganization } from '../cv';
+import CvBadge from './CvBadge.astro';
 
 interface Props extends IOrganization {
   current?: boolean;
@@ -20,14 +21,14 @@ const { city, country, remarks, current, currentLabel } = Astro.props;
   </div>
 
   <span class="inline-flex gap-x-1 whitespace-nowrap">
-    <div class="hidden md:inline-flex items-center rounded-md border px-2 py-0.5 font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent bg-gray-100 hover:bg-gray-500/20 align-middle text-xs">
+    <CvBadge>
       {city && `${city} - `}
       {country}
-    </div>
+    </CvBadge>
     {current && (
-      <div class="hidden md:inline-flex items-center rounded-md border px-2 py-0.5 font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent bg-green-50 hover:bg-green-100 align-middle text-xs">
+      <CvBadge variant="green">
         {currentLabel || 'Current'}
-      </div>
+      </CvBadge>
     )}
   </span>
 </div>

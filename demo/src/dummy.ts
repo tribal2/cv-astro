@@ -1,4 +1,13 @@
-import type { ICertification, IEducation, IExperience, ILanguage, IPersonalInfo, IProject, ISkill, IVolunteer } from "cv-astro";
+import type {
+  ICertification,
+  IEducation,
+  IExperience,
+  ILanguage,
+  IPersonalInfo,
+  IProject,
+  ISkill,
+  IVolunteer
+} from "../../packages/cv-astro";
 
 const info: IPersonalInfo = {
   name: "John Doe",
@@ -45,17 +54,29 @@ const experience: Array<IExperience> = [
           {
             name: "Enterprise Resource Planning System",
             description: "Developed a comprehensive ERP system for internal use.",
-            technologies: ["JavaScript", "Python", "React"]
+            technologies: [
+              { name: "JavaScript" },
+              { name: "Python" },
+              { name: "React" }
+            ]
           },
           {
             name: "Customer Relationship Management Tool",
             description: "Implemented a CRM tool to enhance customer engagement.",
-            technologies: ["Vue.js", "Node.js", "MongoDB"]
+            technologies: [
+              { name: "Vue.js" },
+              { name: "Node.js" },
+              { name: "MongoDB" }
+            ]
           },
           {
             name: "E-commerce Platform",
             description: "Built a scalable e-commerce platform supporting thousands of transactions daily.",
-            technologies: ["Angular", "Django", "PostgreSQL"]
+            technologies: [
+              { name: "Angular" },
+              { name: "Django" },
+              { name: "PostgreSQL" }
+            ]
           },
         ],
       }
@@ -88,12 +109,20 @@ const experience: Array<IExperience> = [
           {
             name: "Real Estate Management System",
             description: "Created a system for real estate agents to manage properties and client interactions.",
-            technologies: ["React", "Node.js", "MySQL"]
+            technologies: [
+              { name: "React" },
+              { name: "Node.js" },
+              { name: "MySQL" }
+            ]
           },
           {
             name: "Educational Learning Platform",
             description: "Developed an online learning platform with interactive features.",
-            technologies: ["Angular", "Express", "MongoDB"]
+            technologies: [
+              { name: "Angular" },
+              { name: "Express" },
+              { name: "MongoDB" }
+            ]
           },
         ],
       }
@@ -125,12 +154,19 @@ const experience: Array<IExperience> = [
           {
             name: "Social Media Analytics Tool",
             description: "Worked on a tool for analyzing and presenting social media metrics.",
-            technologies: ["Ruby on Rails", "JavaScript"]
+            technologies: [
+              { name: "Ruby on Rails" },
+              { name: "JavaScript" }
+            ]
           },
           {
             name: "Online Marketplace",
             description: "Contributed to the development of a platform for local artisans to sell their products.",
-            technologies: ["PHP", "Laravel", "Vue.js"]
+            technologies: [
+              { name: "PHP" },
+              { name: "Laravel" },
+              { name: "Vue.js" }
+            ]
           },
         ],
       }
@@ -256,119 +292,148 @@ const languages: Array<ILanguage> = [
 const skills: Array<ISkill> = [
   {
     name: "JavaScript",
-    proficiency: 5
+    proficiency: 5,
+    // url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
   },
   {
     name: "TypeScript",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://www.typescriptlang.org/"
   },
   {
     name: "Node.js",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://nodejs.org/"
   },
   {
     name: "React",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://reactjs.org/"
   },
   {
     name: "React Native",
-    proficiency: 1
+    proficiency: 1,
+    url: "https://reactnative.dev/"
   },
   {
     name: "Next.js",
-    proficiency: 2
+    proficiency: 2,
+    url: "https://nextjs.org/"
   },
   {
     name: "GraphQL",
-    proficiency: 2
+    proficiency: 2,
+    url: "https://graphql.org/"
   },
   {
     name: "Apollo",
-    proficiency: 3
+    proficiency: 3,
+    url: "https://www.apollographql.com/"
   },
   {
     name: "Prisma",
-    proficiency: 3
+    proficiency: 3,
+    url: "https://www.prisma.io/"
   },
   {
     name: "PostgreSQL",
-    proficiency: 3
+    proficiency: 3,
+    url: "https://www.postgresql.org/"
   },
   {
     name: "MongoDB",
-    proficiency: 4
+    proficiency: 4,
+    url: "https://www.mongodb.com/"
   },
   {
     name: "Redis",
-    proficiency: 4
+    proficiency: 4,
+    url: "https://redis.io/"
   },
   {
     name: "Docker",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://www.docker.com/"
   },
   {
     name: "Kubernetes",
-    proficiency: 2
+    proficiency: 2,
+    url: "https://kubernetes.io/"
   },
   {
     name: "AWS",
-    proficiency: 3
+    proficiency: 3,
+    url: "https://aws.amazon.com/"
   },
   {
     name: "Google Cloud",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://cloud.google.com/"
   },
   {
     name: "Azure",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://azure.microsoft.com/"
   },
   {
     name: "Linux",
-    proficiency: 4
+    proficiency: 4,
+    url: "https://www.linux.org/"
   },
   {
     name: "Git",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://git-scm.com/"
   },
   {
     name: "HTML",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://developer.mozilla.org/en-US/docs/Web/HTML"
   },
   {
     name: "CSS",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://developer.mozilla.org/en-US/docs/Web/CSS"
   },
   {
     name: "SASS",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://sass-lang.com/"
   },
   {
     name: "Tailwind CSS",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://tailwindcss.com/"
   },
   {
     name: "Bootstrap",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://getbootstrap.com/"
   },
   {
     name: "Material UI",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://mui.com/"
   },
   {
     name: "Ant Design",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://ant.design/"
   },
   {
     name: "Jest",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://jestjs.io/"
   },
   {
     name: "Cypress",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://www.cypress.io/"
   },
   {
     name: "Testing Library",
-    proficiency: 5
+    proficiency: 5,
+    url: "https://testing-library.com/"
   },
 ];
 
@@ -402,56 +467,102 @@ const projects: IProject[] = [
     name: "DevConnector",
     url: "https://devconnector.com/",
     description: "A social network platform for developers to connect, share ideas, and collaborate on projects.",
-    technologies: ["React", "Node.js", "Express", "MongoDB", "Redux"],
-    techUrlPrefix: "/projects/tech/",
+    technologies: [
+      { name: "React" },
+      { name: "Node.js", url: "https://nodejs.org/" },
+      { name: "Express", url: "https://expressjs.com/" },
+      { name: "MongoDB", url: "https://www.mongodb.com/" },
+      { name: "Redux", url: "https://redux.js.org/" }
+    ],
   },
   {
     name: "E-Shop",
     url: "https://eshop.com/",
     description: "An e-commerce application designed for small businesses to set up their online stores effortlessly.",
-    technologies: ["Vue.js", "Firebase", "Vuetify", "Stripe API"],
+    technologies: [
+      { name: "Vue.js" },
+      { name: "Firebase" },
+      { name: "Vuetify" },
+      { name: "Stripe API" }
+    ],
   },
   {
     name: "TaskManager",
     url: "https://taskmanager.com/",
     description: "A task management tool providing teams with the ability to track progress on various projects.",
-    technologies: ["Angular", "Spring Boot", "MySQL", "JWT"],
+    technologies: [
+      { name: "Angular" },
+      { name: "Spring Boot" },
+      { name: "MySQL" },
+      { name: "JWT" }
+    ],
   },
   {
     name: "HealthTracker",
     url: "https://healthtracker.com/",
     description: "A health and fitness application that allows users to track their diet, exercise, and wellness goals.",
-    technologies: ["React Native", "Node.js", "Express", "MongoDB"],
+    technologies: [
+      { name: "React Native" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "MongoDB" }
+    ],
   },
   {
     name: "Blogify",
     url: "https://blogify.com/",
     description: "A blogging platform where users can create, publish, and share their content with a wide audience.",
-    technologies: ["Gatsby", "GraphQL", "Strapi", "Tailwind CSS"],
+    technologies: [
+      { name: "Gatsby" },
+      { name: "GraphQL" },
+      { name: "Strapi" },
+      { name: "Tailwind CSS" }
+    ],
   },
   {
     name: "RecipeFinder",
     url: "https://recipefinder.com/",
     description: "A web app for finding recipes based on ingredients you have, focusing on reducing food waste.",
-    technologies: ["Svelte", "Django", "PostgreSQL", "Docker"],
+    technologies: [
+      { name: "Svelte" },
+      { name: "Django" },
+      { name: "PostgreSQL" },
+      { name: "Docker" }
+    ],
   },
   {
     name: "PortfolioBuilder",
     url: "https://portfoliobuilder.com/",
     description: "An online tool that assists professionals in creating their own portfolio websites quickly and easily.",
-    technologies: ["Next.js", "Tailwind CSS", "Vercel", "Contentful"],
+    technologies: [
+      { name: "Next.js" },
+      { name: "Tailwind CSS" },
+      { name: "Vercel" },
+      { name: "Contentful" }
+    ],
   },
   {
     name: "WeatherNow",
     url: "https://weathernow.com/",
     description: "A weather forecasting application providing real-time weather updates and alerts.",
-    technologies: ["Flutter", "Dart", "Firebase", "OpenWeatherMap API"],
+    technologies: [
+      { name: "Flutter" },
+      { name: "Dart" },
+      { name: "Firebase" },
+      { name: "OpenWeatherMap API" }
+    ],
   },
   {
     name: "TravelBuddy",
     url: "https://travelbuddy.com/",
     description: "A travel planning application that offers personalized itinerary suggestions and booking services.",
-    technologies: ["React", "Redux", "Node.js", "Express", "MongoDB"],
+    technologies: [
+      { name: "React" },
+      { name: "Redux" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "MongoDB" }
+    ],
   }
 ];
 

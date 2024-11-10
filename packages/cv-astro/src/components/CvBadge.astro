@@ -1,0 +1,54 @@
+---
+interface Props {
+  url?: string;
+  variant?: keyof typeof colors;
+  target?: '_blank' | '_self';
+}
+
+const colors = {
+  green: ['bg-green-100', 'hover:bg-green-200'],
+  default: ['bg-gray-100', 'hover:bg-gray-200'],
+};
+
+const { url, variant = 'default', target = '_blank' } = Astro.props;
+
+const defaultClasses = [
+  'cursor-default',
+  'rounded-md',
+  'border',
+  'px-2',
+  'py-0.5',
+  'text-xs',
+  'font-semibold',
+  'font-mono',
+  'transition-colors',
+  'text-nowrap',
+  'border-transparent',
+  colors[variant][0],
+].join(' ');
+
+const anchorClasses = [
+  'cursor-pointer',
+  'focus:outline-none',
+  'focus:ring-2',
+  'focus:ring-ring',
+  'focus:ring-offset-2',
+  colors[variant][1],
+].join(' ');
+
+const classes = url ? `${defaultClasses} ${anchorClasses}` : defaultClasses;
+---
+{url ? (
+  <a
+    href={url}
+    class={classes}
+    target={target}
+    rel="noopener noreferrer"
+  >
+    <slot />
+  </a>
+) : (
+  <span class={classes}>
+    <slot />
+  </span>
+)}

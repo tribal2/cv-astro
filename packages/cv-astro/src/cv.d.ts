@@ -6,17 +6,9 @@ export interface ICvData {
   certifications?: ICertification[];
   skills?: ISkill[];
   projects?: IProject[];
-  order?: ECvSection[];
-}
-
-export enum ECvSection {
-  Info = 'info',
-  Experience = 'experience',
-  Volunteering = 'volunteering',
-  Education = 'education',
-  Certifications = 'certifications',
-  Skills = 'skills',
-  Projects = 'projects',
+  config?: {
+    categoryOrder?: string[];
+  };
 }
 
 export interface IPersonalInfo {
@@ -76,16 +68,16 @@ export interface IProject {
   url?: string;
   description: string;
   output?: string;
-  technologies: string[];
-  techUrlPrefix?: string;
+  technologies: IOptionalLink[];
 }
 
 export interface IEducation {
   institution: IOrganization;
   degree: string;
   major?: string;
-  startDate: string;
-  endDate: string;
+  startDate?: string;
+  endDate?: string;
+  inProgress?: boolean;
   projects?: IProject[];
   achievements?: string[];
 }
@@ -115,7 +107,12 @@ export interface ILanguage {
   proficiency: string;
 }
 
-export interface ISkill {
-  name: string;
+export interface ISkill extends IOptionalLink {
   proficiency: number;
+  category?: string;
+}
+
+export interface IOptionalLink {
+  name: string;
+  url?: string;
 }

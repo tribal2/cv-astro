@@ -1,21 +1,44 @@
 ---
+import CvBadge from '../components/CvBadge.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
 import type { ISkill } from '../cv';
 
 
 interface Props {
   data: ISkill[];
+  categoryOrder?: string[];
 }
 
-const skills = Astro.props.data
-  .sort((a, b) => (b.proficiency - a.proficiency));
+const proficiencySorter =
+(a: ISkill, b: ISkill) => (b.proficiency - a.proficiency);
+
+const { data: skills, categoryOrder } = Astro.props;
+
+skills.sort(proficiencySorter);
+
+if (categoryOrder) {
+  skills.sort((a, b) => {
+    // If a skill's category isn't in categoryOrder, place it at the end
+    const defaultPosition = categoryOrder.length;
+
+    // Get positions of categories in the order list, defaulting to end position
+    // if not found
+    const positionA = a.category ? categoryOrder.indexOf(a.category) : -1;
+    const positionB = b.category ? categoryOrder.indexOf(b.category) : -1;
+
+    const finalPositionA = positionA === -1 ? defaultPosition : positionA;
+    const finalPositionB = positionB === -1 ? defaultPosition : positionB;
+
+    return finalPositionA - finalPositionB;
+  });
+}
 ---
-<section class="flex min-h-0 flex-col gap-y-3">
-  <h2 class="text-xl font-bold">Skills</h2>
+<SectionWrapper title="Skills">
   <div class="flex flex-wrap gap-1">
     {skills.map(skill => (
-      <div class="inline-flex items-center rounded-md border px-2 py-0.5 text-xs font-semibold font-mono transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 text-nowrap border-transparent bg-gray-100 hover:bg-gray-500/20">
+      <CvBadge url={skill.url}>
         {skill.name}
-      </div>
+      </CvBadge>
     ))}
   </div>
-</section>
+</SectionWrapper>

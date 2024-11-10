@@ -10,18 +10,18 @@ import type { ICvData } from './cv';
 
 interface Props extends ICvData {}
 
-const { info, experience, volunteering, education, certifications, skills, projects, order } = Astro.props;
+const {
+  info,
+  experience,
+  volunteering,
+  education,
+  certifications,
+  skills,
+  projects,
+  config,
+} = Astro.props;
 
-// @todo: allow changing order of sections
-// const ordering: ECvSection[] = order || [
-//   'info',
-//   'experience',
-//   'projects',
-//   'volunteering',
-//   'education',
-//   'certifications',
-//   'skills',
-// ];
+const { categoryOrder } = config || {};
 ---
 <style>
   .font-mono {
@@ -31,12 +31,12 @@ const { info, experience, volunteering, education, certifications, skills, proje
 
 <main class="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-0 md:p-16">
   <section class="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
-    <PersonalInfo {...info}/>
+    <PersonalInfo data={info}/>
     { experience && (<WorkExperience data={experience}/>) }
     { projects && (<Projects data={projects}/>) }
     { volunteering && (<VolunteerExperience data={volunteering} />) }
     { education && (<Education data={education}/>) }
     { certifications && (<Certifications data={certifications} />) }
-    { skills && (<Skills data={skills}/>) }
+    { skills && (<Skills data={skills} categoryOrder={categoryOrder} />) }
   </section>
 </main>

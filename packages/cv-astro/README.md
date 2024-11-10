@@ -51,6 +51,8 @@ import CV from 'cv-astro';
 >   certifications?: ICertification[];
 >   skills?: ISkill[];
 >   projects?: IProject[];
->   order?: ECvSection[];
+>   config?: {
+>     categoryOrder?: string[];
+>   };
 > }
 > ```

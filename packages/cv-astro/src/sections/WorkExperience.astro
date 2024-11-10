@@ -1,5 +1,6 @@
 ---
 import OrgInfo from '../components/OrgInfo.astro';
+import SectionWrapper from '../components/SectionWrapper.astro';
 import type { IExperience } from '../cv';
 
 interface Props {
@@ -8,12 +9,9 @@ interface Props {
 
 const { data } = Astro.props;
 ---
-<section class="flex min-h-0 flex-col gap-y-3">
-  <h2 class="text-xl font-bold">Work Experience</h2>
-
+<SectionWrapper title="Work Experience">
   {data.map(exp => (
-    <div class="rounded-lg bg-card text-card-foreground">
-
+    <div class="flex flex-col space-y-1.5">
       <!-- Company -->
       <OrgInfo {...exp.company} current={exp.current} />
 
@@ -48,5 +46,4 @@ const { data } = Astro.props;
 
     </div>
   ))}
-
-</section>
+</SectionWrapper>
